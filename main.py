@@ -60,6 +60,11 @@ async def main():
             openai_client=client,
     )
 
+    #If you want o test with your local mode (e.g. llama.cpp), you can use the following line instead:
+    # model = OpenAIChatCompletionsModel( 
+    #     model="llama3.1",
+    #     openai_client=AsyncOpenAI(base_url="http://localhost:11434/v1")
+    # )
 
     agent_conf = config.get("agent", {})
 
