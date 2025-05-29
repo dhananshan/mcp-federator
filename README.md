@@ -27,3 +27,6 @@ create a .env and add your secrets. In this example we use github and atlassian 
 `export JIRA_USERNAME="<YOUR VALUE>"`
 
 `export JIRA_API_TOKEN="<YOUR VALUE>"`
+
+# TODO
+[] Proxy MCP server
