@@ -14,6 +14,21 @@ logging.basicConfig(level=logging.WARNING)
 set_tracing_disabled(disabled=True)
 
 async def main():
+    """
+    Asynchronous entry point for the MCP Federator application.
+    This function performs the following steps:
+    1. Loads environment variables from a .env file.
+    2. Loads and processes the application configuration from 'config.json', recursively substituting environment variables.
+    3. Initializes MCP server instances based on the configuration.
+    4. Configures the Azure OpenAI client and model, or optionally a local model.
+    5. Initializes the agent with the specified configuration and MCP servers.
+    6. Enters a chat loop, accepting user prompts, maintaining chat history, and generating responses using the agent.
+    7. Supports graceful exit on user command.
+    Returns:
+        None
+    Raises:
+        Any exceptions raised during configuration loading, server initialization, or agent execution.
+    """
 
     load_dotenv()
 
