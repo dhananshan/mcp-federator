@@ -10,6 +10,7 @@ from openai import AsyncAzureOpenAI
 
 logging.basicConfig(level=logging.WARNING)
 
+# set to false because openapi try to send trace to openapi server rather than azure openapi server. possible bug in openapi library
 set_tracing_disabled(disabled=True)
 
 async def main():
@@ -80,7 +81,10 @@ async def main():
             mcp_servers=servers,
             model=model
         )
+
+        #for chat history
         chat_history = []
+        
         while True:
             prompt = input("Enter a prompt (type 'exit' to quit): ")
             if prompt.strip().lower() in ("exit", "quit"):
